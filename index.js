@@ -51,8 +51,7 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
 
-import path from "path";
-import { fileURLToPath } from 'url';
+;
 
 //configure env
 dotenv.config();
@@ -76,18 +75,7 @@ app.get("/", (req, res) => {
   res.send("<h1>welcome to ecommerce app</h1>");
 });
 
-//
-// Serve static files from the React app
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, 'client/build')));
 
-// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
-});
-
-//
 //PORT
 const PORT = process.env.PORT || 8080;
 
